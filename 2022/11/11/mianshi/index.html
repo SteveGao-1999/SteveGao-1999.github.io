@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>mianshi · Steve Gao's 自留地</title><meta name="description" content="css
+如何让一个盒子在水平方向和垂直方向都居中1.flex 盒子2.父盒子 position：relative定位，子盒子绝对定位 translate(-50%,-50%)less或者sass相比于css有什么优势？1.嵌套2.定义变量3.可以通过宏（mixin）抽取公共样式如何做响应式布局或者如"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Steve Gao's 自留地</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>mianshi</a></h3></div><div class="post-content"><p>css</p>
+<p>如何让一个盒子在水平方向和垂直方向都居中<br>1.flex 盒子<br>2.父盒子 position：relative定位，子盒子绝对定位 translate(-50%,-50%)<br>less或者sass相比于css有什么优势？<br>1.嵌套<br>2.定义变量<br>3.可以通过宏（mixin）抽取公共样式<br>如何做响应式布局或者如何适配<br>1.flex<br>2.百分比布局<br>3.rem<br>4.媒体查询<br>5.rpx<br>css sprite(雪碧图或者精灵图) 有什么优缺点？<br>优点<br>1.减少 HTTP 请求<br>缺点<br>1.维护变差<br>你知道哪些css3新特性和h5新特性<br>1.background-position<br>2.border-radius<br>3.flex<br>4.text-shadow<br>5.transform:</p>
+<p>HTML 5 新特性<br>1.语义化标签<br>2.localStorage（本地存储）<br>3.websocket<br>rgba()和opacity的透明效果有什么不同<br>        rgba() 和 opacity 都能实现透明效果，但最⼤的不同是 opacity 作⽤于元素，以及元<br>素内的所有内容的透明度，<br>⽽ rgba() 只作⽤于元素的颜⾊或其背景⾊。（设置 rgba 透明的元素的⼦元素不会继承<br>透明效果！）<br>js<br>js数据类型有哪些？有什么区别<br>基本数据类型<br>string，number，bigint，boolean，null，undefined，symbol (ECMAScript 2016 新增)<br>引用数据类型<br>object<br>区别？<br>基本数据类型放到栈里面<br>引用类型堆和栈都有存储，堆里面放本体，栈里面放存储地址<br>谈一下你对作用域的理解<br>1.标识符（变量和函数）能够访问的范围<br>2.全局<br>3.局部（函数）<br>4.块级</p>
+<p>作用域链<br>变量取值会到创建这个变量的函数的作用域中取值，如果找不到，就会向上级作用域去查，直到查到全局作用域，这么一个查找过程形成的链条就叫做作用域链。<br>谈一下你对原型的理解<br>proto 指向构造函数的原型对象<br>每个函数都有一个原型对象 prototype（显示原型）</p>
+<p>原型链：查找对象属性的查找路径就是原型链<br>当访问一个对象的属性时， 会在这个对象的属性上去找，如果没有找到就会去这个对象的–proto– 上去找，即构造函数prototype 上找，如果没有会一直在–proto– 上找，直到最顶层，不到即为undefined 。这样一层一层地向上，就彷佛一条链子串起来，所以就叫原型链。</p>
+<p>什么是闭包<br>能够访问其他局部作用域中的变量的函数称之为闭包<br>如何修改函数的this指向，这些方法之间有什么区别？<br>1.call<br>2.apply<br>3.bind<br>前两个立即调用，最后一个不会立即调用<br>事件委托或者事件代理的原理是什么？<br>事件冒泡，事件会从目标事件源依次向上冒泡，直到 window 对象<br>事件捕获，事件从 window 对象依次向下传，直到目标事件源<br>事件冒泡和事件捕获的区别是什么？<br>事件冒泡：从下至上(是指子元素向父元素传递的过程)，  bool&#x3D;false冒泡(默认)<br>事件捕获：从上至下(是指父元素向子元素传递的过程)， bool&#x3D;true 捕获 一般不会用到<br>你知道的es6新特性有哪些？<br>let const 拓展运算符 解构赋值 箭头函数 symbol<br>js异步编程方式有几种<br>AJAX<br>Promise<br>async await<br>promise有几种状态<br>pending fulfilled rejected （注意顺序）<br>    pending fulfilled rejected   当我们创建一个Promise对象的时候，它的状态默认是pending ,要修改它的状态必须调用resolve方法或者reject方法<br> const myPromiseObj &#x3D; new Promise((resolve,reject)&#x3D;&gt;{<br>  setTimeout(()&#x3D;&gt;{<br>  resolve()<br>  })<br> })<br> myPromiseObj.then(()&#x3D;&gt;{}).catch(()&#x3D;&gt;{})</p>
+<p>js如何浅拷贝和深拷贝一个对象<br>    浅拷贝：Object.assign 或者拓展运算符…<br>    深拷贝：const deepCopiedObj &#x3D; JONS.parse(JSON.stringify(obj))<br>JSON 无法拷贝函数 如何避免？<br>1.用第三方库提供的现成方法lodash 中的 _cloneDeep（）<br>2.自己实现深拷贝的方法<br>rem和em和px的区别<br>    px是固定单位，rem和em是响应式单位，1rem的大小取决于根节点html的字体大小（即font-size属性），1em的大小取决于其父节点的字体大小，在移动端我们一般用rem,但是要注意：这时html的fontSize属性应该是动态计算的，而不是写死，一般是把当前可视窗口的宽度除以一个经验值得到的比值作为html的fontSize属性值的。<br>for循环中break和continue的区别是什么？<br> break：跳出整个循环<br>continue:跳出档次循环，继续执行后面的循环<br>如何用原生js给一个按钮的点击事件绑定两个事件处理函数<br>    addEventListener 事件监听器处理<br>js引擎如何实现异步的？<br>    js引擎是通过事件循环（Event Loop）实现异步的<br>    什么是事件循环？？<br>      js引擎里面有两个非常重要的部分：执行栈和任务队列<br>      所有的代码都要加载到执行栈里面进行执行<br>      在执行过程中如果发现有异步任务，则js引擎会把这个异步任务交给浏览器的其他线程去处理，比如在执行的时候遇到<br>      接口发送，则js引擎会把它交给http请求线程去处理，然后js引擎继续执行后边的同步任务，但是同http请求线程也在同时<br>      运作，当请求发送成功之后，即数据拿到之后，http请求线程会将我们之前在js里面设置的回调函数推送到js引擎的任务队列里面<br>      当js引擎在执行栈里面把任务清空之后，则回到任务队列里面去寻找有没有待执行的回调函数，有则拿到执行栈里面去执行<br>      执行完了之后，又会到任务队列里面去寻找有没有待执行的回调，如此循环往复的过程就是事件循环，理解了事件循环就理解了<br>  * 浏览器是多线程的，js引擎只是其中一个线程，除此之外还有http请求线程，定时触发线程，事件处理线程，GUI渲染线程</p>
+<pre><code>前置知识：
+</code></pre>
+<p>​      1. 浏览器是多线程（一个人，这个人同一个时间只能够做一件事情）的，js引擎只是其中一个线程，专门用来处理js脚本，除此之外<br>​            还有http请求线程，事件触发线程、定时触发线程、GUI渲染引擎（注意该线程和js引擎线程是互斥的，同一个时间只能有一个线程在工作，并且js引擎的优先级一般要高于GUI渲染引擎）<br>​            2. js引擎线程中有两个很重要的概念<br>​                        a. 执行栈（先进后出） ：所有的js脚本都会加载到执行栈中去执行<br>​                        b. 任务队列（先进先出）：存放所有异步任务的回调函数<br>      当js引擎在执行栈中执行js脚本的时候，如果发现有异步任务（比如发送http请求），则会把该异步任务交给浏览器的其他线程（http请求线程）去处理<br>​      然后js引擎继续执行后面的同步代码<br>​          此时这里有两条线在同时工作<br>​              1. js引擎继续执行后面的同步任务，当把同步任务执行完成之后，会立刻到任务队里中查找有没有待执行的回调函数<br>​                            如果有 就拿到执行栈中执行，执行完了，又立刻到任务队里中去查找，如此循环往复的过程，就是事件循环（Event Loop）<br>​                            当你理解了事件循环，就相当于理解了js引擎如何实现异步的<br>​                            2. http请求在处理请求、如果请求处理成功，则会把之前设置的回调函数推送到js引擎的任务队列里面</p>
+<p>什么是函数柯理化？<br>    通过函数返回函数的方式（闭包），让一个一次性接受多个参数的函数，分解为一次只接受一个参数的若干函数的组合<br>    其作用是为了参数的复用，</p>
+<p> function towSum(a,b){<br>  return a + b;<br> }<br> <br> &#x2F;&#x2F;现在对上面的函数进行柯理化<br> function towSum(a){<br>  return function(b){<br>  return a + b;<br>  }<br> }<br> 或者<br> const res &#x3D; (a)&#x3D;&gt;(b)&#x3D;&gt;a+b;</p>
+<p>微任务和宏任务的区别<br> 微任务常用的只有一个 promise.then<br> 其他都是宏任务 比如定时器、延时器、发送请求等</p>
+<pre><code>优先级：微任务优先于宏任务
+</code></pre>
+<p>DOMContentLoaded和load事件的区别<br>DOMContentLoaded 意思就是：当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。</p>
+<p>防抖和节流有什么区别，如何实现<br>    在高频触发的事件中，可能会导致一些性能问题，比如在PC端浏览器缩放时（resize事件），我们在事件处理函数里面如果操作DOM，则用户缩放的时候，可能会导致浏览器卡顿，这是我们就可以通过防抖节流来控制操作DOM的频率，避免过快的操作DOM，但是这两者的区别在于：<br>        防抖的思路是：设置一个延时器，延时n秒在执行相应的逻辑（即频繁执行可能会影响性能的逻辑），如果在n秒内，再次执行了，则清空延时器，并从当下开始从新设置延时器，n秒后再执行。<br>        节流的思路是：在特定的时间段内，相应的逻辑必须有且只能执行一次。</p>
+<p> &#x2F;&#x2F;防抖<br> function debunce(func,time){<br>  let timer &#x3D; null;<br>  return function(){<br>  if(timer)clearInterval(timer);<br>  timer &#x3D; setTimeout(()&#x3D;&gt;{<br>  func.apply(this,arguments)<br>  },time);<br>  }<br> }<br> &#x2F;&#x2F;节流<br> function throttle(func,time){<br>  let preTime &#x3D; +new Date()<br>  return function(){<br>  const curTime &#x3D; +new Date()<br>  if(curTime - preTime &gt;&#x3D; time){<br>  func.apply(this,arguments);<br>  preTime &#x3D; curTime;<br>  }<br>  }<br> }</p>
+<p>代码题</p>
+<p>1. </p>
+<p> var a &#x3D; {};<br> var b &#x3D; {key:”b”};<br> var c &#x3D; {key:”c”};<br> a[b] &#x3D; “b”;<br> a[c] &#x3D; “c”;<br> console.log(“a[b]”,a[b]);&#x2F;&#x2F;???
+ </p>
+<ol start="2">
+<li> var age &#x3D; 100;</li>
+<li> let years &#x3D; 6;</li>
+<li> if(age &gt; 12){</li>
+<li>    let age &#x3D; 10;</li>
+<li>    var years &#x3D; age*3;</li>
+<li> }</li>
+<li> &#x2F;&#x2F;问：以上代码有问题吗？</li>
+<li>  componentDidMount() {</li>
+<li>        this.setState({ count: this.state.count + 1 });</li>
+<li>        console.log(‘1’, this.state.count);</li>
+<li>        this.setState({ count: this.state.count + 1 });</li>
+<li>        console.log(‘2’, this.state.count);</li>
+<li>        setTimeout(() &#x3D;&gt; {</li>
+<li>            this.setState({ count: this.state.count + 1 });</li>
+<li>            console.log(‘3’, this.state.count);</li>
+<li>            this.setState({ count: this.state.count + 1 });</li>
+<li>            console.log(‘4’, this.state.count);</li>
+<li>        }, 0);</li>
+<li>  </li>
+<li>    }</li>
+<li>     </li>
+<li>    &#x2F;&#x2F;打印结果</li>
+<li>     </li>
+<li>  </li>
+<li>  showName();&#x2F;&#x2F;1</li>
+<li>  function Cat() {</li>
+<li>            let showName &#x3D; function () {</li>
+<li>                console.log(1);</li>
+<li>            }</li>
+<li>            return this;</li>
+<li>  }</li>
+<li>        </li>
+<li>        Cat.showName &#x3D; function () { console.log(2) };</li>
+<li>        Cat.prototype.showName &#x3D; function () { console.log(3) };</li>
+<li>        var showName &#x3D; function () { console.log(4) };</li>
+<li>        function showName() { console.log(5) };</li>
+<li>        Cat.showName();&#x2F;&#x2F;2</li>
+<li>        showName();&#x2F;&#x2F;3</li>
+<li>        Cat().showName();&#x2F;&#x2F;4</li>
+<li>        showName();&#x2F;&#x2F;4</li>
+<li>        new Cat.showName();&#x2F;&#x2F;5</li>
+<li>        new Cat().showName();&#x2F;&#x2F;6</li>
+<li>        new new Cat().showName();&#x2F;&#x2F;7</li>
+<li>        &#x2F;&#x2F;打印结果？？</li>
+<li>  function Cat() {</li>
+<li>            showName &#x3D; function () {</li>
+<li>                console.log(1);</li>
+<li>            }</li>
+<li>            console.log(‘this’,this)</li>
+<li>            return this;</li>
+<li>            </li>
+<li>  }</li>
+<li>        </li>
+<li>        Cat.showName &#x3D; function () { console.log(2) };</li>
+<li>        Cat.prototype.showName &#x3D; function () { console.log(3) };</li>
+<li>        var showName &#x3D; function () { console.log(4) };</li>
+<li>        function showName() { console.log(5) };</li>
+<li>        Cat.showName();</li>
+<li>        showName();</li>
+<li>        Cat().showName();</li>
+<li>        showName();</li>
+<li>        new Cat.showName();</li>
+<li>        new Cat().showName();</li>
+<li>        new new Cat().showName();</li>
+<li>         </li>
+<li>        &#x2F;&#x2F;打印结果，注意跟上一题的区别</li>
+<li>这段代码有什么问题吗？  this.setState((state,props)&#x3D;&gt;{</li>
+<li>  return {total:state.total + props.count}</li>
+<li> });</li>
+<li>查看以下代码：如果你在页面中创建了一个React元素，请完成他的组件定义？  <Profile username="sofn"></li>
+<li>  {user&#x3D;&gt;user&#x3D;&#x3D;&#x3D;null ? <Loading/> : <Badge info={user}/>}{“ “}</li>
+<li> </Profile></li>
+<li>  </li>
+<li> import React ,{Component} from ‘react’;</li>
+<li> import PropTypes from ‘prop-types’;</li>
+<li> import fetchUser from ‘utils’;</li>
+<li> &#x2F;&#x2F;fetchUser接收用户名，并返回promise</li>
+<li> &#x2F;&#x2F;当得到用户数据的时候返回resolve状态</li>
+<li> class Profile extends Component{</li>
+<li>  &#x2F;&#x2F;在这里写下你的代码</li>
+<li>  </li>
+<li> }</li>
+</ol>
+<p>vue<br>vue3和vue2的区别<br>vue组件中watch和computed的区别<br> 1. watch中一个值的变化可能会引起多个值的变化，而compouted中多个值的变化会只会影响一个值的变化（即该计算属性返回的值）<br> 2. 在watch中我们可能会有副作用，比如发送请求等，而computed则没有副作用，仅仅是根据母体数据衍生出新的数据而已。</p>
+<p>vue常用的生命周期钩子函数有哪些？分别有什么作用？</p>
+<p>钩子函数	created	mounted	updated	beforeDestory<br>执行时机	数据初始化完毕之后	DOM渲染完毕之后	数据更新完毕并且DOM更新完毕之后	组件卸载之前<br>作用	发送请求	发送请求、获取DOM等	发送请求（注意加上条件判断）、获取DOM等	性能优化相关，比如清除定时器、延时器、解绑事件等</p>
+<p>vue如何实现组件通信（组件传值）？ 父子  兄弟  复杂组件关系</p>
+<p>组件关系	父子	兄弟	复杂组件关系<br>通信方式	props&#x2F;绑定自定义事件、$emit	状态提升、事件总线	状态机vuex</p>
+<p>vue项目如何做路由拦截？<br>    全局路由守卫（router.beforeEach）、局部（页面内部）路由守卫<br>vue的响应式原理 Object.defineProperty<br>    vue组件中data里面的数据，在初始渲染之前都会被Object.defineProperty转化成响应式数据，然后这些数据的访问和修改就能够被监听了，每当数据被访问的时候就会触发getter,接着会通知watcher，watcher这是会做一次依赖的收集或者更新，然后watcher会负责通知渲染界面（先转化为虚拟DOM,在映射为真正的DOM）。每当数据被设置的时候会触发setter,接着setter也会通知watcher,watcher在去通知渲染界面<br>v-if和v-show的区别<br>v-if和v-for能一起用吗<br>keep-alive组件有什么作用<br>    缓存组件<br>this.$nextTick有什么作用<br>类似updated,你可以称作移动版的updated,如果你想获取数据更新过后，DOM的最新状态，则可以使用该方法（如果你直接获取DOM状态是拿不到的，因为在vue里面数据更新虽然是同步的，但是DOM的更新是异步的），当然你也可以利用updated生命周期钩子函数，但是不方便<br>this.$set有什么作用<br>    在组件data中预定义的数据，一定是响应式的，但是我们后续，通过常规的方式（比如someObject.propName &#x3D; xxx）为data中某些对象添加新的属性时，这些新的属性并不是响应式的，这是可以使用该方法。 this.$set(target,prop,value)  这里的prop属性就是响应式的<br>vuex核心概念<br>vue如何做路由懒加载<br>    路由配置中component属性的值修改为：（）&#x3D;&gt;import(组件路径)<br>你认为vue 框架和jquery有什么区别？<br>开发思想不同，vue是数据驱动，并且可以组件化开发，jquery则是DOM驱动的，开发效率低<br>vue如何自定义指令<br>如何封装一个vue插件<br>vue中什么是过滤器（filter）<br>vue如何提取组件的公共逻辑<br>    vuex&#x2F;mixins&#x2F;自定义指令&#x2F;插件</p>
+<p>react<br>shouldComponentUpdate有什么作用？<br>    它是react组件的一个 生命周期钩子函数，每次数据更新时，首先会执行该钩子函数，如果返回true,表示可以更新界面，然后后续的钩子函数才会陆续执行，返回false，则表示不可以更新，后续的钩子函数也不会执行，当然它默认返回true,<br>    我们一般不会直接在组件中使用该钩子函数，而是会选择PureCompopnent来代替Component,在PureComponent里面就利用来该钩子函数来做优化<br>setState有什么特性<br>        它的作用是更新组件内部状态，可以接受两个参数，参数一个一般是个对象，在底层react会通过Object.assign把传入的对象和原来的state进行合并，当然也可以传入一个函数，这个函数会接受两个形参（一个表示state，一个表示props）,并返回个对象，要注意的是，这个函数在执行是会保证之前的state已经更新完毕，最后在把该函数返回的对象和原来的对象进行合并。当新的状态值会基于老的状态值时，我们会倾向于给setState的第一个参数传递一个函数进去。它的第二个参数则是一个回调函数，会在数据更新完毕，并且dom更新完毕时执行。<br>        另外，当我们在react事件体系或者组件生命周期钩子函数里面直接调用setState的时候，它是异步的，其他情况是同步的，比如在setTimeout&#x2F;setInterval里面调用就是同步的<br> this.setState({name:’张三’});<br> this.setState((state,props)&#x3D;&gt;({})</p>
+<p>react列表渲染时，key的作用<br>    提升渲染性能<br>react组件之间如何通信<br>    父子（props）、兄弟(状态提升、事件总线)、复杂组件关系（状态机）<br>解释一下redux核心概念<br>    store action reducer<br>react常用的生命周期钩子函数有哪些？分别有什么作用</p>
+<p>钩子函数名	constructor	render	componentDidMount	componentDidUpdate	componentWillUnmount<br>执行时机和作用	组件初始化时负责数据的初始化	渲染界面	DOM渲染完毕时执行，可以在这里发送接口，获取DOM等	数据更新完毕且界面更新完毕后执行	组件即将卸载的时候执行，可以在这里清除定时器，延时器，解绑事件等等</p>
+<p>react中refs有什么作用？<br> 1. 获取DOM<br> 2. 获取组件实例</p>
+<p>redux中间件是什么，有什么作用，你常用的中间件有哪些？<br>redux三大原则是什么？</p>
+<ol>
+<li>单一数据源</li>
+<li>store中的数据（state）是只读的</li>
+<li>必须通过纯函数reducer来执行修改</li>
+</ol>
+<h6 id=""><a href="#" class="headerlink" title=""></a></h6><p>react中容器组件和展示组件有什么区别？<br>函数组件和类组件有什么区别（16.8以前）？<br>你对react新特性hooks有什么了解吗？<br>react如何提取组件之间的公共逻辑<br>什么是高阶组件？有什么作用？你常用的高阶组件有哪些<br>受控组件和不受控组件有什么区别？<br>JSX的底层原理是什么？<br>react组件的数据来源有哪些？他们之间有什么区别？<br>react插槽是什么？（或者react中如何实现组件复合？）<br>react中context是什么？<br>react中废弃了哪些和新增了哪些生命周期钩子函数<br>小程序<br>小程序一个页面有几个文件构成？<br>小程序怎么跟后台交互<br>（1）直接用微信官方提供的接口 wx.request接口，跟jquery的ajax差不多<br>小程序怎么做扫码功能（wx.scanCode），怎么做支付功能(wx.requestPayment)<br>（1）调用微信提供的现成的接口（wx.开头的），即可，具体参数怎么传参照文档即可<br>微信里面怎么获取用户的手机号？？<br>（1）简单，直接用微信官方提供的现成组件button即可，具体用法是在button上加一个属性opent-type，方它的值为getPhoneNumber,不知道怎么用的去找微信官文档看看、<br>小程序分包是什么？有什么作用？<br>提示：跟vue路由懒加载有类似的作用，提升用户体验度，减少首屏渲染速度<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/basic.html">https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/basic.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/acmdown/article/details/80037660">https://blog.csdn.net/acmdown/article/details/80037660</a><br>其他<br>性能优化<br>从用户在浏览器中输入url,到浏览器渲染出界面，中间发生了什么？<br>    DNS域名解析——》发起http或者https请求——》服务端处理请求——-》浏览器接受请求响应，并渲染界面<br>SPA（single page application）如何提高首屏（注意：不是首页，一般你在url中输入一个新的路劲，然后回车，即是一个首屏）的渲染速度<br>DNS域名解析部分优化</p>
+<ol>
+<li>DNS prefetch(DNS预解析)</li>
+</ol>
+<p> 在html头部使用link标签进行DNS预解析<br> <link rel="dns-prefetch" href="//www.baidu.com"></p>
+<p>发起请求部分</p>
+<ol>
+<li>减少请求次数<ol>
+<li>采用css sprinte(也叫雪碧图或者精灵图)，即：如果有多张比较小的背景图，可以合成一个，然后通过background-position去设置背景，而不用每个都去发送请求</li>
+<li>某些图片编译成可以是用base64格式（webpack中的url-loader会自动把大小小于某些值的图片编译成base64格式的，然后内嵌到js文件中，所以后续在访问这些图片时，不在需要单独发送请求）<ul>
+<li>何时用base64格式的图片？？，可以参考以下几个因素<ol>
+<li>这类图片不能与其他图片以CSS Sprite的形式存在，只能独行</li>
+<li>这类图片从诞生之日起，基本上很少被更新</li>
+<li>这类图片的实际尺寸很小</li>
+<li>这类图片在网站中大规模使用</li>
+</ol>
+</li>
+<li></li>
+</ul>
+</li>
+<li></li>
+<li>合并脚本和样式表，但是要视情况而定，如果合并脚本或者样式表后，包的体积变得非常大，反而会过度延长网络请求时间，从而导致首先渲染更慢</li>
+<li>利用http缓存（新鲜度限值和服务器在验证）</li>
+</ol>
+</li>
+<li></li>
+<li>减少请求或者服务端响应式时（当然主要是响应），网络数据包的大小<ol>
+<li>压缩css&#x2F;js、图片等</li>
+<li>路由懒加载</li>
+</ol>
+</li>
+<li></li>
+<li>缩短网络的传输距离，优化网络传输路径<ol>
+<li>利用CDN（内容分发网络），一般我们会把静态资源，即很少变化，体积有比较大的资源交给CDN服务商管理</li>
+</ol>
+</li>
+<li></li>
+</ol>
+<p>服务端优化：不需要关注<br>    使用单独的图片服务器、使用redis缓存、使用负载均衡等等<br>浏览器渲染</p>
+<ol>
+<li>css放在body之前，script放在body之后</li>
+<li>ssr(server side render—服务端渲染)</li>
+<li>requestAnimationFrame 对于动画来讲：定时器为什么不是一个好的方案 1. 开发人员并不知道，间隔多少时间出发一个动画何时，间隔时间如果太短，则会损耗浏览器的性能，如果间隔时间太长,则用户就会感觉卡顿。并且定时器自身机制的问题，它的回调函数触发的时机可能并不是你设置的时间，因为他要等到执行栈里面的任务清空之后再去执行   优化要达到的目的：间隔时间合适，同时用户不会觉得卡分析： 第一：间隔时间要合适，你自己手动设置肯定不行，因为延时器或定时器触发的时机本就不精确。 第二：用户不会觉得卡顿，首先我们要搞清楚是什么原因导致的卡顿，所以接下来，我们要解释一下浏览器帧的概念 	帧：浏览器中的页面是有一帧一帧绘制出来的，当每秒钟绘制的帧数（FPS–Frame Per Second）大于或等于60的时候，用户是感觉不到卡顿的，换言每一帧的时间控制在1s&#x2F;60,也就是大约16.6毫秒之内时，用户是感觉不到卡顿的。 在一帧中浏览器大致做了如下事情（有时不一定每一步都会执行）： 1. 处理用户的交互 2. js解析执行（例如用户事件处理函数中的逻辑） 3. 调用window.requestAnimationFrame中注册的函数（注意：这个函数其实是上一帧中注册的函数，且如果在这一帧中发现有注册的函数，则该函数一定会被执行） 4. Layout（布局，如果第二次触发，我们就称之为回流） 5. Paint（绘制，如果第二次触发我们就称之为重绘） 6. 如果前五步骤执行完了之后，这一帧还有剩余时间，则调用window.requestIdleCallback中注册的函数 也就是说这前五个步骤（其他我们先暂时不用考虑）执行时间总和要在16.6毫秒内，才能保证用户体验。 	结论：我们可以利用requestAnimationFrame实现动画逻辑，并且不需要传递时间，在这里触发动画，一般情况1秒钟也能达到60帧（当然动画里的逻辑也不能太复杂，在这一步，如果执行时间过长也会导致掉帧（1秒钟没有达到60次），从而让用户决定卡顿），具体用法如下（实现一个元素，在水平方向上左右移动的效果）   <div style="width:50px;height:50px;background-color: red;" id="myDiv"></div></li>
+<li>  </li>
+<li>  let originStep &#x3D; 10;   </li>
+<li>  let step &#x3D; 10;&#x2F;&#x2F;每次移动的距离</li>
+<li>  let direction &#x3D; 1;&#x2F;&#x2F;移动的方向1表示向右，-1表示向左</li>
+<li>  let left &#x3D; 0;&#x2F;&#x2F;元素的偏移量</li>
+<li>  const offsetWidth &#x3D; document.body.offsetWidth;&#x2F;&#x2F;body的宽度</li>
+<li>  const el &#x3D; document.getElementById(‘myDiv’);</li>
+<li>  const eleWidth &#x3D; el.offsetWidth;&#x2F;&#x2F;元素的宽度</li>
+<li>  const runAnimation &#x3D; () &#x3D;&gt; {</li>
+<li>      if(direction &#x3D;&#x3D;&#x3D; 1){</li>
+<li>      const remainOffset &#x3D; offsetWidth - (left + eleWidth);&#x2F;&#x2F;向右移动时，距离右边距剩余距离</li>
+<li>      if(remainOffset &lt; step &amp;&amp; remainOffset !&#x3D;&#x3D; 0){</li>
+<li>      step &#x3D; remainOffset;&#x2F;&#x2F;保证向右的移动不会超出右边接线</li>
+<li>      }</li>
+<li>      }else{</li>
+<li>      step &#x3D; originStep;&#x2F;&#x2F;当向左移动的时候恢复移动速度</li>
+<li>      }</li>
+<li>      if(left &lt;&#x3D;0){</li>
+<li>      direction &#x3D; 1;</li>
+<li>      }else if(offsetWidth &lt;&#x3D; left + eleWidth){</li>
+<li>      direction &#x3D; -1;</li>
+<li>      }</li>
+<li>      const xOffset &#x3D; left +&#x3D; step*direction;</li>
+<li>      el.style.transform &#x3D; <code>translate($&#123;xOffset&#125;px,0)</code>;</li>
+<li>      requestAnimationFrame(runAnimation);&#x2F;&#x2F;在注册回调</li>
+<li>    }</li>
+<li>    requestAnimationFrame(runAnimation)	<ul>
+<li>requestAnimationFrame执行过后会返回一个id,跟定时器一样，我们可以根据这个id取消对应的requestAnimationFrame  const cancelId &#x3D; requestAnimationFrame(runAnimation);</li>
+<li> cancelAnimationFrame(cancelId);</li>
+</ul>
+</li>
+<li></li>
+<li>requestIdleCallback</li>
+</ol>
+<p>SSR(Server Side Render)和CSR(Client Side Render)<br>SSR<br>    浏览器中显示的页面，是由服务器拼接好模板，然后通过网络传送到浏览器，在有浏览器直接渲染的，由于在网络传输路径中携带了网页的内容，所以ssr模式非常适合做SEO，同时服务器拼装模板的速度会比浏览器快很多，所以SSR模式也会提升网站的首屏渲染速度。但是也会增加服务端的压力。<br>ssr两个优势<br>    利于seo<br>    缩短首屏渲染速度</p>
+<p>CSR</p>
+<p>webpack<br>webpack有什么作用？<br>   什么是webpack ? 模块化的打包工具，原理是，我们必须向它提供一个入口js文件，然后webpack会根据这个入口文件生成一张依赖图，然后在堆这张依赖图里面的文件进行转义和打包，最后生成浏览器能够识别的资源文件（css  js 。。。）<br>作用：<br> 1. 让项目模块化<br> 2. 编译scss&#x2F;less .vue   jsx<br> 3. 性能优化：压缩、代码拆分、图片转base64格式。。。<br> 4. 工程化：自动编译、打包</p>
+<p>webpack常用配置项有哪些？（webpack.config.js）</p>
+<ol>
+<li>entry:入口文件</li>
+<li>output:出口文件</li>
+<li>module  module:{</li>
+<li> rules:[</li>
+<li>  {</li>
+<li>  test:&#x2F;.css$&#x2F;,</li>
+<li>  use:[‘style-loader’，’css-loader’],&#x2F;&#x2F;从后往前执行</li>
+<li>  }</li>
+<li>  ]</li>
+<li> }</li>
+</ol>
+<p>网络相关<br>常用的http状态码有哪些，<br> 1. 200<br> 2. 404<br> 3. 401  <br> 4. 500<br> 5. 304  <br> 6. 301 资源永久重定向</p>
+<p>http和https的区别<br> 安全：https协议在传输数据的时候，会对数据进行加密()，http则是明文传输<br>性能：http协议的传输性能更高，因为对于传输同样的数据量来讲，由于https协议需要加密处理，所以最终在线路上它的数据量要大一点<br>费用：https需要购买证书，http则免费<br>默认端口不同：https–443   http—80<br>websokect和http的区别<br> websokect能够实现客户端和服务端的双向通信，http则只能是单向通信，由客户端去请求服务端，服务端不能主动的向客户端推送数据<br>应用场景不同<br>    websokect  实时通信   数据的实时更新<br>http  简单的客户端请求服务端<br>业务相关<br>如何处理权限问题<br>比如后台管理系统，不同的角色看到的侧边栏项是不同的，如何实现？<br>首先把侧边栏抽象成一个数组，数组里面每一元素（对象）则表示每一个侧边栏，并且在每一个元素里面，我们需要添加一个表示角色的字典，以此来区分，何种角色能够看到当前侧边栏项，<br>接线来，就要根据当前登录人的角色 去 过滤当前数组，并返回当前角色能看到的侧边栏数据<br>最后在根据得到的数据，进行遍历循环，渲染侧边栏<br>前端如何实现身份验证</p>
+<ol>
+<li>session 早些年在token出现之前都是通过session来实现浏览器客户端的身份验证的，每次用户登录时把用户名和密码传到后端服务器，后端服务器验证用户名和密码，如果验证通过就会生成一个sessionId，并存储到服务器中，同时该请求在响应给客户端时，会通过Set-Cookie字段把sessionId投放并存储到客户端(浏览器)的HTTP-cookies，当客户端下一次发送请求到服务端的时候会自动携带上存有sessionId的cookie。这样后端服务器拿到sessionId和之前存储的sessionId一对比，如果一样就确定该用户是之前的用户，然后就把数据响应到客户端了。</li>
+<li>token	每次用户登录时把用户名和密码传到后端服务器，后端服务器验证用户名和密码，如果验证通过一般会用过JWT结合用户信息通过一个秘钥（该秘钥会存储到服务器）加密生成一个token，然后把该token返回给客户端，客户端一般把token存储到本地存储，比如localStorage或者sessionStorage中。后续在在发送接口的时候会把token从本地存储中取出来，放到请求头Header中发送给后端服务器。后端拿到token，然后通过之前的秘钥尝试去解该token，如果能解密出来就说明该token是合法的，否则就是不合法的。</li>
+<li>session和token的区别<ol>
+<li>session需要借助于cookie，而cookie只有浏览器支持，如果要做app则没办法用session来实现身份验证。只能用token</li>
+<li>seesion需要在服务器中存储每位用户对应的sessionId,而token只需要存一份秘钥即可。</li>
+</ol>
+</li>
+<li></li>
+</ol>
+<p>数据可视化如何实现（echart）<br> option       setOption(option)<br>如何实现数据的实时更新    websocket<br>在项目中如何做到token的无感刷新<br>uni-app中要路径跳转，如何提高效率<br>    使用uni.preloadPage页面预加载,但是该方法有兼容性问题，只在app端和H5端有效<br>请说一下你项目中微信支付流程如何做的<br>说一下项目中微信授权登录的流程。前后端是如何去交互的<br>    参照：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html">https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html</a><br>项目中权限如何如何渲染，如果后端的权限粒度要控制到每个功能如何实现<br>为什么使用uni-app，你在项目开发的过程中遇到哪些兼容问题，以及如何处理的</p>
+<ol>
+<li>页面预加载，只有H5和APP端支持，小程序不支持</li>
+<li>css中给元素设置背景图，H5端支持，小程序不支持（在小程序端用行内样式设置背景图即可）</li>
+<li>css中通配符*在H5端支持，但是小程序不支持</li>
+<li>在非H5端不能使用ref的方式引用内置组件（比如view等）<ul>
+<li>如果想为不同的平台写不同的代码，可以使用条件编译</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<p>项目中遇到的最大的问题是什么<br>在页面中如果要同时发送5个接口，当所有接口都成功相应之后，再去做其他操作，这个如何实现<br>    promise.all同时注意与promise.allSettled做对比<br>项目是如何打包上线的，打包的时候需要配置些什么内容<br>项目中如何实现上拉加载，下拉刷新的，如果要自己实现，说一下思路<br>前端登录后，传递id给后端获取数据，这种方式安全吗？你是如何来避免的<br> 1. 把get方式换成POST<br> 2. 如果我用抓包工具，把数据抓下来，在伪装发送接口，怎么办？—–http–&gt;https</p>
+<p>项目如何打包为apk，如果是ios系统，如何打包呢<br>团队中各个成员是如何配合的<br>微信小程序如何发布上线</p>
+<p>微信小程序上线发布，通过有上角的上传按钮即可哈，上传后，微信官方会做一个审核，审核通过之后，我们就能够通过微信搜索到该小程序了<br>浏览器<br>什么是跨域？如何解决<br>跨域是浏览器的同源策略导致的问题，当我们的协议、域名和端口号，任意一个不同的时候，就会导致跨域的出现<br>常见的一个场景，前端请求后端api的时候出现跨域，如何解决？</p>
+<ol>
+<li>前端处理：代理服务器 webpack-dev-server (vue.config.js)   </li>
+<li> devServer:{</li>
+<li>  proxy:{</li>
+<li>  “&#x2F;api”:{</li>
+<li>  target:”<a href="http://localhost:8000&quot;">http://localhost:8000&quot;</a></li>
+<li>  }</li>
+<li>  }</li>
+<li> }</li>
+<li>后端处理<ol>
+<li>设置响应头</li>
+</ol>
+</li>
+<li></li>
+</ol>
+<p>浏览器渲染页面的流程<br>    GUI渲染线程负责界面的渲染过程<br>    同时解析html&#x2F;css<br>解析html   —-&gt;DOMTree<br>解析css—&gt;CSSTree<br>然后合并DOMTree和CSSTree形成RenderTree(渲染树)<br>接下来开始layout  (布局，回流)<br>绘制（重绘）</p>
+<p>根据这些过程我们可以知晓在写html的时候需要注意的一些事项（性能优化）<br> 1. css放在头部<br> 2. js放在尾部，因为js是有js引擎去编译和执行的，而js引擎和GUI渲染引擎是互斥的</p>
+<p>重绘和回流有什么区别</p>
+<p>数据结构相关<br>你知道的数据结构有哪些？<br>栈、队列、链表、二叉树<br>空间复杂度和时间复杂度<br>这个两个概念是用来衡量一个算法优劣的两个维度，空间复杂度表示，算法所消耗的内存大小，而时间复杂度，表示一个算法所消耗的时间。一般情况下，我们更看重一个算法在时间上的消耗。如果时间太长，则认为这个算法是不太好的需要优化，所以才会有用空间换时间这个说法。<br>时间复杂度可以用大O表示法。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-11</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2022/11/11/mianshi/,Steve Gao's 自留地,mianshi,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/11/11/hello-world/" title="Hello World">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
