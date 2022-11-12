@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>面试Nov12 · Steve Gao's 自留地</title><meta name="description" content="1.什么是 XSS 攻击？指跨站脚本攻击，攻击者通过在网站注入恶意脚本，使其在用户的浏览器上运行，从而盗取 cookie 等信息
+攻击操作：
+获取页面数据（DOM、cookie、本地存储等）
+发动 DOS 攻击占用资源
+破坏页面结构
+流量劫持
+
+攻击类型
+存储型 XSS：恶意代码存在数据库中（经常出"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Steve Gao's 自留地</a></h3></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a target="_blank" rel="noopener" href="https://www.caicai.me"> CaiCai </a><span>&</span><a target="_blank" rel="noopener" href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>面试Nov12</a></h3></div><div class="post-content"><h3 id="1-什么是-XSS-攻击？"><a href="#1-什么是-XSS-攻击？" class="headerlink" title="1.什么是 XSS 攻击？"></a>1.什么是 XSS 攻击？</h3><p>指跨站脚本攻击，攻击者通过在网站注入恶意脚本，使其在用户的浏览器上运行，从而盗取 cookie 等信息</p>
+<h4 id="攻击操作："><a href="#攻击操作：" class="headerlink" title="攻击操作："></a>攻击操作：</h4><ul>
+<li>获取页面数据（DOM、cookie、本地存储等）</li>
+<li>发动 DOS 攻击占用资源</li>
+<li>破坏页面结构</li>
+<li>流量劫持</li>
+</ul>
+<h4 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h4><ul>
+<li>存储型 XSS：恶意代码存在数据库中（经常出现在论坛发帖、商品评论、用户私信）</li>
+<li>反射型 XSS：恶意代码存在 URL 中（经常出现在网站搜索、跳转等）</li>
+<li>DOM 型 XSS 攻击：攻击者构造出特殊的 URL（前端 JS 自身的安全漏洞）</li>
+</ul>
+<h3 id="2-如何防御-XSS-攻击？"><a href="#2-如何防御-XSS-攻击？" class="headerlink" title="2.如何防御 XSS 攻击？"></a>2.如何防御 XSS 攻击？</h3><ul>
+<li>纯前端渲染，避免使用 SSR 来完成渲染</li>
+<li>使用 CSP 建立白名单</li>
+<li>对 Cookie 使用 Httponly</li>
+</ul>
+<h3 id="3-什么是-CSRF-攻击"><a href="#3-什么是-CSRF-攻击" class="headerlink" title="3.什么是 CSRF 攻击"></a>3.什么是 CSRF 攻击</h3><p>指跨站请求伪造攻击，攻击者诱导用户进入第三方网站，该网站向之前的网站发送请求，如果在此前的网站，受害者保存了状态，那么攻击者就可以利用这个状态，冒充受害者向服务器执行一些操作。</p>
+<h4 id="攻击类型-1"><a href="#攻击类型-1" class="headerlink" title="攻击类型"></a>攻击类型</h4><ul>
+<li>GET 类型的 CSRF 攻击（如将请求放在 img 标签中构建请求，用户打开网页的时候就会自动发送请求）</li>
+<li>POST 类型的 CSRF 攻击（如构建一个表单并隐藏，用户进入页面后自动提交了表单）</li>
+<li>链接类型的 CSRF 攻击（如在 a 标签 hred 属性里构建请求，诱导用户点击）</li>
+</ul>
+<h3 id="4-如何防御-CSRF-攻击"><a href="#4-如何防御-CSRF-攻击" class="headerlink" title="4.如何防御 CSRF 攻击"></a>4.如何防御 CSRF 攻击</h3><ul>
+<li>进行同源检测</li>
+<li>使用 CSRF Token 进行验证（每次提交都携带 Token 进行）</li>
+<li>Cookie 进行双重验证</li>
+<li>设置 Cookie 属性的时候设置 Samesite，限制 Cookie 不能被第三方使用</li>
+</ul>
+<h3 id="5-进程和线程的概念"><a href="#5-进程和线程的概念" class="headerlink" title="5.进程和线程的概念"></a>5.进程和线程的概念</h3><p>都是 CPU 工作时间片的一个描述：</p>
+<p>（进程是资源分配的最小单位，线程是 CPU 调度的最小单位）</p>
+<ul>
+<li>进程：描述了 CPU 在运行指令及加载和保存上下文所需的时间，放在应用上来说就代表了一个程序。</li>
+<li>线程：进程中的更小单位，是 CPU 调度的最小单位。</li>
+</ul>
+<h3 id="6-进程和线程的区别"><a href="#6-进程和线程的区别" class="headerlink" title="6.进程和线程的区别"></a>6.进程和线程的区别</h3><p>进程可以看作是一个独立应用，线程不能</p>
+<p>资源：进程是 CPU 资源分配的最小单位，线程是 CPU 调度的最小单位（一个线程中可以有多个进程）</p>
+<p>通信方面：线程间可以共享同一进程的资源，进程通信则需要借助“进程间通信”</p>
+<p>系统开销：进程需要较大的系统开销，线程开销较小</p>
+<h3 id="7-进程之间的通信方式"><a href="#7-进程之间的通信方式" class="headerlink" title="7.进程之间的通信方式"></a>7.进程之间的通信方式</h3><h4 id="1-管道通信"><a href="#1-管道通信" class="headerlink" title="1.管道通信"></a>1.管道通信</h4><p>在内核中开辟一段缓冲区（就是管道），进程 1 可以将数据拷贝到缓冲区，进程 2 就可以读取了。</p>
+<p>特点：</p>
+<ul>
+<li>单向通信</li>
+<li>有血缘关系的进程之间才能通信</li>
+<li>依赖于文件系统</li>
+<li>生命周期随流程</li>
+<li>面向字节流</li>
+<li>管道内提供同步机制</li>
+</ul>
+<h4 id="2-消息队列通信"><a href="#2-消息队列通信" class="headerlink" title="2.消息队列通信"></a>2.消息队列通信</h4><p>消息队列就是一个消息的列表。用户可以在消息队列中添加消息、读取消息等。消息队列提供了一种从一个进程向另一个进程发送一个数据块的方法。</p>
+<h4 id="3-信号量通信"><a href="#3-信号量通信" class="headerlink" title="3.信号量通信"></a>3.信号量通信</h4><h4 id="4-信号通信"><a href="#4-信号通信" class="headerlink" title="4.信号通信"></a>4.信号通信</h4><h4 id="5-共享内存通信"><a href="#5-共享内存通信" class="headerlink" title="5.共享内存通信"></a>5.共享内存通信</h4><p>映射一段能被其他进程访问的内存</p>
+<h4 id="6-嵌套字通信"><a href="#6-嵌套字通信" class="headerlink" title="6.嵌套字通信"></a>6.嵌套字通信</h4><p>利用 Socket 进行通信</p>
+<h3 id="8-死锁产生的原因，如何解决？"><a href="#8-死锁产生的原因，如何解决？" class="headerlink" title="8.死锁产生的原因，如何解决？"></a>8.死锁产生的原因，如何解决？</h3><p>多个进程在抢占资源造成的僵局</p>
+<h4 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h4><ul>
+<li>竞争资源</li>
+<li>进程间推进顺序非法</li>
+</ul>
+<h4 id="预防死锁"><a href="#预防死锁" class="headerlink" title="预防死锁"></a>预防死锁</h4><ul>
+<li><p>资源一次性分配，这样之后就不会有请求了</p>
+</li>
+<li><p>只要有一个资源得不到分配，也不给这个进程分配其他的资源（破坏请保持条件）</p>
+</li>
+<li><p>可剥夺资源：即当某进程获得了部分资源，但得不到其它资源，则释放已占有的资源（破坏不可剥夺条件）</p>
+</li>
+<li><p>资源有序分配法：系统给每类资源赋予一个编号，每一个进程按编号递增的顺序请求资源，释放则相反（破坏环路等待条件）</p>
+</li>
+</ul>
+<h3 id="9-如何实现浏览器多标签通信"><a href="#9-如何实现浏览器多标签通信" class="headerlink" title="9.如何实现浏览器多标签通信"></a>9.如何实现浏览器多标签通信</h3><ul>
+<li>使用 WebScoket 协议</li>
+</ul>
+<p>因为 websocket 协议可以实现服务器推送，所以服务器就可以用来当做这个中介者。标签页通过向服务器发送数据，然后由服务器向其他标签页推送转发。</p>
+<ul>
+<li>使用 ShareWorker</li>
+</ul>
+<p>shareWorker 会在页面存在的生命周期内创建一个唯一的线程，并且开启多个页面也只会使用同一个线程。这个时候共享线程就可以充当中介者的角色。标签页间通过共享一个线程，然后通过这个共享的线程来实现数据的交换。</p>
+<ul>
+<li>使用 localStorage 方式</li>
+</ul>
+<p>我们可以在一个标签页对 localStorage 的变化事件进行监听，然后当另一个标签页修改数据的时候，我们就可以通过这个监听事件来获取到数据。这个时候 localStorage 对象就是充当的中介者的角色。</p>
+<ul>
+<li>使用 postMessage 标签</li>
+</ul>
+<p>如果我们能够获得对应标签页的引用，就可以使用postMessage 方法，进行通信。</p>
+<ol start="10">
+<li></li>
+</ol>
+<h3 id="11-协商缓存和强缓存的区别"><a href="#11-协商缓存和强缓存的区别" class="headerlink" title="11.协商缓存和强缓存的区别"></a>11.协商缓存和强缓存的区别</h3><h4 id="（1）强缓存"><a href="#（1）强缓存" class="headerlink" title="（1）强缓存"></a>（1）强缓存</h4><p>使用强缓存策略时，如果缓存资源有效，则直接使用缓存资源，不必再向服务器发起请求。</p>
+<p>设置方法：强缓存策略可以通过两种方式来设置，分别是 http 头信息中的 Expires 属性和 Cache-Control 属性。</p>
+<h4 id="（2）协商缓存"><a href="#（2）协商缓存" class="headerlink" title="（2）协商缓存"></a>（2）协商缓存</h4><p>如何强缓存执行了，那么协商缓存就不执行了，当 <code>max-age=xxx</code> 过期了，值为<code>no-store</code>，这个时候就启动协商缓存，向服务器发送请求，如果资源没有发生改变，返回 304，如何改变了，就返回修改后的资源。</p>
+<h3 id="12-浏览器内核的理解"><a href="#12-浏览器内核的理解" class="headerlink" title="12.浏览器内核的理解"></a>12.浏览器内核的理解</h3><p>分为两部分：</p>
+<p>渲染引擎：负责渲染，在窗口中显示所请求的内容</p>
+<p>JS 引擎：解析和执行 JS 来实现网页动态效果</p>
+<h3 id="13-浏览器主要组成部分"><a href="#13-浏览器主要组成部分" class="headerlink" title="13.浏览器主要组成部分"></a>13.浏览器主要组成部分</h3><p>用户界面、浏览器引擎、呈现引擎、网络、用户界面后端、JS 解释器、数据存储</p>
+<h3 id="14-浏览器渲染过程"><a href="#14-浏览器渲染过程" class="headerlink" title="14.浏览器渲染过程"></a>14.浏览器渲染过程</h3><ol>
+<li>解析 HTML，生成 DOM 树，解析 CSS，生成 CSSOM 树</li>
+<li>将 DOM 树和 CSSOM 树结合，生成渲染树</li>
+<li>回流：根据生成的渲染树，进行回流，获取到节点的几何信息（位置、大小）</li>
+<li>重绘：根据渲染树以及回流后的信息，得到节点的绝对像素</li>
+<li>将像素发送到 GPU，展示页面</li>
+</ol>
+<h3 id="15-浏览器渲染优化"><a href="#15-浏览器渲染优化" class="headerlink" title="15.浏览器渲染优化"></a>15.浏览器渲染优化</h3><p>针对 JS：</p>
+<ol>
+<li>JS 尽量放在 body 之后</li>
+<li>JS 引入的时候可以考虑延迟（async、defer）</li>
+</ol>
+<p>针对 CSS：</p>
+<ol>
+<li>CSS 写在 header 中加快加载速度</li>
+<li>外部样式使用 link 引入</li>
+</ol>
+<p>针对 DOM 树、CSSOM 树：</p>
+<ol>
+<li>HTML 代码层级尽量减少</li>
+<li>使用语义化标签</li>
+<li>减少 CSS 层级</li>
+</ol>
+<p>减少回流和重绘：</p>
+<p>避免频繁操作 DOM，尽可能减少 table 布局</p>
+<h3 id="16-浏览器渲染遇到-JS-如何处理"><a href="#16-浏览器渲染遇到-JS-如何处理" class="headerlink" title="16.浏览器渲染遇到 JS 如何处理"></a>16.浏览器渲染遇到 JS 如何处理</h3><p>HTML 解析器遇到 JS 就会暂停文档解析，控制器交给 JS 引擎，等 JS 引擎运行完毕，浏览器再从中断的地方继续解析文档。</p>
+<h3 id="17-什么情况会阻塞渲染"><a href="#17-什么情况会阻塞渲染" class="headerlink" title="17.什么情况会阻塞渲染"></a>17.什么情况会阻塞渲染</h3><ol>
+<li>渲染的前提是生成渲染树，所以 HTML 和 CSS 会阻塞渲染</li>
+<li>若 JS 文件没有放在底部或者没有使用 defer 或 async 的话肯定也会阻塞</li>
+</ol>
+<h3 id="18-浏览器本地存储的方式及使用场景"><a href="#18-浏览器本地存储的方式及使用场景" class="headerlink" title="18.浏览器本地存储的方式及使用场景"></a>18.浏览器本地存储的方式及使用场景</h3><ul>
+<li>Cookie</li>
+</ul>
+<p>Cookie的大小只有4kb，它是一种纯文本文件，每次发起HTTP请求都会携带Cookie。</p>
+<p> <strong>特性：</strong></p>
+<ol>
+<li>一旦创建成功，无法修改名称</li>
+<li>无法跨域</li>
+<li>每个域名下不能超过 20 个，每个不能超过 4KB</li>
+<li>有很大的安全问题，容易被攻击者获取</li>
+<li>Cookie 在请求一个新的页面时会被发送过去</li>
+</ol>
+<p><strong>使用场景</strong>：</p>
+<ol>
+<li>最常见的 就是 Cookie 和 Session 配合，我们将 SessionID 存在 Cookie 中，每次请求都携带 SessionID，知行合一服务器就知道这个请求是谁发送的了，从而响应信息。</li>
+<li>统计页面的点击次数</li>
+</ol>
+<ul>
+<li>LocalStorage</li>
+</ul>
+<p>HTML 5 中提出的，因为 Cookie 只能存 4KB 信息，而 LocalStorage 可以存储 5MB。</p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>可以存储 5MB 数据</li>
+<li>可以持久存储，不会随着页面的关闭而消失</li>
+<li>仅存储在本地，不会像 Cookie 一样每次请求都被携带</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>存在兼容性问题，IE8 以下的版本无法使用</li>
+<li>如果浏览器设置为“隐私模式”（无痕浏览等）将无法读取 LocalStorage</li>
+<li>LocalStorage 受同源策略限制</li>
+</ol>
+<p><strong>使用场景：</strong></p>
+<ol>
+<li>有些网站有换肤的功能，这时候就可以将换肤的信息存储在本地的LocalStorage中，当需要换肤的时候，直接操作LocalStorage即可</li>
+<li>在网站中的用户浏览信息也会存储在LocalStorage中，还有网站的一些不常变动的个人信息等也可以存储在本地的LocalStorage中</li>
+</ol>
+<ul>
+<li>SessionStorage</li>
+</ul>
+<p>HTML 5 提出的，用来临时保存同一窗口的数据，页面刷新时不会删除，关闭窗口后会被删除。</p>
+<p><strong>使用场景：</strong></p>
+<ul>
+<li>由于SessionStorage具有时效性，所以可以用来存储一些网站的游客登录的信息，还有临时的浏览记录的信息。当关闭网站之后，这些信息也就随之消除了。</li>
+</ul>
+<p><strong>SessionStorage</strong> <strong>与LocalStorage对比：</strong></p>
+<ul>
+<li>SessionStorage和LocalStorage都在<strong>本地进行数据存储</strong>；</li>
+<li>SessionStorage也有同源策略的限制，但是SessionStorage有一条更加严格的限制，SessionStorage<strong>只有在同一浏览器的同一窗口下才能够共享</strong>；</li>
+<li>LocalStorage和SessionStorage<strong>都不能被爬虫爬取</strong>；</li>
+</ul>
+<h3 id="19-Cookie-有哪些字段，作用分别是？"><a href="#19-Cookie-有哪些字段，作用分别是？" class="headerlink" title="19.Cookie 有哪些字段，作用分别是？"></a>19.Cookie 有哪些字段，作用分别是？</h3><ul>
+<li><strong>Name</strong>：Cookie 名称</li>
+<li><strong>Value</strong>：Cookie 的值，对于认证 Cookie、Value 值包括 Web 服务器所提供的访问令牌</li>
+<li><strong>Size</strong>：Cookie 大小</li>
+<li><strong>Path</strong>：可以访问此 Cookie 的页面路径</li>
+<li><strong>Secure</strong>：指定是否使用 HTTPS 安全协议发送 Cookie</li>
+<li><strong>Domain</strong>：可以访问该 Cookie 的域名</li>
+<li><strong>HTTP</strong>： 该字段包含<code>HTTPOnly</code> 属性 ，该属性用来设置cookie能否通过脚本来访问，默认为空，即可以通过脚本访问。</li>
+<li><strong>Expires&#x2F;Max-size</strong> ： 此cookie的超时时间。</li>
+</ul>
+<h3 id="20-Cookie-、LocalStorage-和-SessionStorage区别"><a href="#20-Cookie-、LocalStorage-和-SessionStorage区别" class="headerlink" title="20.Cookie 、LocalStorage 和 SessionStorage区别"></a>20.Cookie 、LocalStorage 和 SessionStorage区别</h3><ul>
+<li>Web Storage 是为了更大容量存储设计的。Cookie 的大小是受限的，并且每次你请求一个新的页面的时候 Cookie 都会被发送过去，这样无形中浪费了带宽；</li>
+<li>cookie 需要指定作用域，不可以跨域调用；</li>
+<li>Web Storage 拥有 setItem,getItem,removeItem,clear 等方法，不像 cookie 需要前端开发者自己封装 setCookie，getCookie；</li>
+<li>Cookie 也是不可以或缺的：Cookie 的作用是与服务器进行交互，作为 HTTP 规范的一部分而存在 ，而 Web Storage 仅仅是为了在本地“存储”数据而生。</li>
+</ul>
+<h3 id="21-前端储存方式有哪些"><a href="#21-前端储存方式有哪些" class="headerlink" title="21.前端储存方式有哪些"></a>21.前端储存方式有哪些</h3><ul>
+<li>Cookie</li>
+<li>LocalStorage</li>
+<li>SeesionStorage</li>
+<li>Web SQL</li>
+<li>IndexedDB</li>
+</ul>
+<h3 id="22-什么是同源策略"><a href="#22-什么是同源策略" class="headerlink" title="22.什么是同源策略"></a>22.什么是同源策略</h3><p>限制了从一个源加载的文档或脚本如何与另一个源的数据进行交互。</p>
+<p>同源指的是：协议、端口号、域名必须一致</p>
+<p><strong>同源政策主要限制了三个方面：</strong></p>
+<ul>
+<li>当前域下的 js 脚本不能够访问其他域下的 cookie、localStorage 和 indexDB。</li>
+<li>当前域下的 js 脚本不能够操作访问操作其他域下的 DOM。</li>
+<li>当前域下 ajax 无法发送跨域请求。</li>
+</ul>
+<h3 id="23-如何解决跨域问题"><a href="#23-如何解决跨域问题" class="headerlink" title="23.如何解决跨域问题"></a>23.如何解决跨域问题</h3><ol>
+<li><strong>CORS</strong>：需要浏览器和服务器同时支持，整个 CORS 过程由浏览器完成，无需用户参与，因此实现 CORS 的关键就是服务器，只要服务器实现了 CORS 请求，就可以跨源通信了。</li>
+<li><strong>JSONP：</strong>利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签src属性，发送带有callback参数的GET请求，服务端将接口返回数据拼凑到callback函数中，返回给浏览器，浏览器解析执行，从而前端拿到callback函数返回的数据。缺点：不安全，仅支持 GET 方法</li>
+<li><strong>postMessage：</strong>HTML5 XMLHttpRequest Level 2中的API，且是为数不多可以跨域操作的window属性之一。</li>
+<li><strong>nginx 代理跨域</strong>：和 CORS 跨域原理一样，通过配置文件设置请求响应头。</li>
+<li><strong>nodejs 中间件代理跨域：</strong>通过一个代理服务器实现数据的转发</li>
+<li><strong>document.domain + iframe跨域：</strong>此方案仅限主域相同，子域不同的跨域应用场景。实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。</li>
+<li><strong>location.hash + iframe跨域：</strong>a域与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。</li>
+<li><strong>window.name + iframe跨域</strong>：window.name属性的独特之处：name值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。</li>
+<li><strong>WebSocket 协议跨域：</strong>WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很好的实现。</li>
+</ol>
+<h3 id="24-事件是什么-事件模型"><a href="#24-事件是什么-事件模型" class="headerlink" title="24.事件是什么 事件模型"></a>24.事件是什么 事件模型</h3><p>事件：用户操作网页时发送的交互动作（或者文档加载、窗口滚动、大小调整）</p>
+<p>事件是用户操作网页时发生的交互动作或者网页本身的一些操作，现代浏览器一共有三种事件模型：</p>
+<ul>
+<li><strong>DOM0 级事件模型</strong>，这种模型不会传播，所以没有事件流的概念，但是现在有的浏览器支持以<strong>冒泡</strong>的方式实现，它可以在网页中直接定义监听函数，也可以通过 js 属性来指定监听函数。所有浏览器都兼容这种方式。直接在dom对象上注册事件名称，就是DOM0写法。</li>
+<li><strong>IE 事件模型</strong>，在该事件模型中，一次事件共有两个过程，事件处理阶段和事件冒泡阶段。事件处理阶段会首先执行目标元素绑定的监听事件。然后是事件冒泡阶段，冒泡指的是事件从目标元素冒泡到 document，依次检查经过的节点是否绑定了事件监听函数，如果有则执行。这种模型通过attachEvent 来添加监听函数，可以添加多个监听函数，会按顺序依次执行。</li>
+<li><strong>DOM2 级事件模型</strong>，在该事件模型中，一次事件共有三个过程，第一个过程是事件捕获阶段。捕获指的是事件从 document 一直向下传播到目标元素，依次检查经过的节点是否绑定了事件监听函数，如果有则执行。后面两个阶段和 IE 事件模型的两个阶段相同。这种事件模型，事件绑定的函数是addEventListener，其中第三个参数可以指定事件是否在捕获阶段执行。</li>
+</ul>
+<h3 id="25-对事件委托的理解"><a href="#25-对事件委托的理解" class="headerlink" title="25.对事件委托的理解"></a>25.对事件委托的理解</h3><p>利用浏览器事件冒泡机制，父节点可以通过事件对象获取到目标节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，这种方式称为事件委托（事件代理）。</p>
+<p>特点：</p>
+<ul>
+<li>减少内存消耗</li>
+<li>动态绑定事件</li>
+</ul>
+<h3 id="26-事件委托的使用场景"><a href="#26-事件委托的使用场景" class="headerlink" title="26.事件委托的使用场景"></a>26.事件委托的使用场景</h3><p>给页面所以的 a 标签添加 click 事件</p>
+<h3 id="27-对事件循环的理解"><a href="#27-对事件循环的理解" class="headerlink" title="27.对事件循环的理解"></a>27.对事件循环的理解</h3><p>任务队列可以分为宏任务队列和微任务队列，当当前执行栈中的事件执行完毕后，js 引擎首先会判断微任务队列中是否有任务可以执行，如果有就将微任务队首的事件压入栈中执行。当微任务队列中的任务都执行完成后再去执行宏任务队列中的任务。</p>
+<h3 id="28-宏任务、微任务有哪些"><a href="#28-宏任务、微任务有哪些" class="headerlink" title="28.宏任务、微任务有哪些"></a>28.宏任务、微任务有哪些</h3><ul>
+<li>微任务包括： promise 的回调、node 中的 process.nextTick 、对 Dom 变化监听的 MutationObserver。</li>
+<li>宏任务包括： script 脚本的执行、setTimeout ，setInterval ，setImmediate 一类的定时事件，还有如 I&#x2F;O 操作、UI 渲染等。</li>
+</ul>
+<h3 id="29-Node-中的-Event-Loop-和浏览器中的有什么区别？process-nextTick-执行顺序？"><a href="#29-Node-中的-Event-Loop-和浏览器中的有什么区别？process-nextTick-执行顺序？" class="headerlink" title="29.Node 中的 Event Loop 和浏览器中的有什么区别？process.nextTick 执行顺序？"></a>29.Node 中的 Event Loop 和浏览器中的有什么区别？process.nextTick 执行顺序？</h3><p>Node 中的 Event Loop 和浏览器中的是完全不相同的东西。</p>
+<p>Node 的 Event Loop 分为 6 个阶段，它们会按照<strong>顺序</strong>反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段。</p>
+<h3 id="30-V8的垃圾回收机构是怎样的"><a href="#30-V8的垃圾回收机构是怎样的" class="headerlink" title="30.V8的垃圾回收机构是怎样的"></a>30.V8的垃圾回收机构是怎样的</h3><p>V8 实现了准确式 GC，GC 算法采用了分代式垃圾回收机制。因此，V8 将内存（堆）分为新生代和老生代两部分。</p>
+<p><strong>（1）新生代算法</strong></p>
+<p>新生代中的对象一般存活时间较短，使用 Scavenge GC 算法。</p>
+<p><strong>（2）老生代算法</strong></p>
+<p>老生代中的对象一般存活时间较长且数量也多，使用了两个算法，分别是标记清除算法和标记压缩算法。</p>
+<h3 id="31-哪些操作会造成内存泄露"><a href="#31-哪些操作会造成内存泄露" class="headerlink" title="31.哪些操作会造成内存泄露"></a>31.哪些操作会造成内存泄露</h3><ol>
+<li>由于使用未声明的变量而意外创建了一个全局变量，使这个变量一直留在内存中无法被回收。</li>
+<li>设置了定时器但未取消</li>
+<li>获取了一个 DOM 的引用，但后面这个元素被删除了，那么这个变量会一直在内存中，无法回收</li>
+<li>不合理使用闭包</li>
+</ol>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-12</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2022/11/12/面试Nov12/,Steve Gao's 自留地,面试Nov12,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/11/11/mianshi/" title="面试题">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
